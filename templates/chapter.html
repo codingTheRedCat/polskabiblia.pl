@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{book.name}} {{chapter.name}}</title>
+</head>
+<style>
+    .navpath a:not(:last-child):after {
+        content: "»";
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        color: rgb(115 115 115);
+    }
+
+    ol {
+        counter-reset: list-counter;
+    }
+
+    ol li::before {
+        counter-increment: list-counter;
+        content: counter(list-counter) '.';
+        color: #00bc00;
+        font-weight: bold;
+        margin-right: 0.25rem;
+    }
+
+    .cha-mr-0.25 > a {
+        margin-rigth: 0.0025rem;
+    }
+</style>
+<link href="../main.css" rel="stylesheet">
+<body class="bg-zinc-900 text-neutral-100 w-screen h-screen">
+    <div class="w-full max-w-xl mx-auto mt-10">
+        <header>
+            <div class="navpath text-neutral-400">
+                <a href="..">BIBLIA</a><a href=".">{{book.name}}</a><a href="">{{chapter.name}}</a>
+            </div>
+            <div class="text-neutral-100 mt-4 mb-8 leading-10 [&>a]:bg-cgreen-500 [&>a]:py-2 [&>a]:px-2.5 [&>a]:rounded-md cha-mr-0.25">
+                {% for bchapter in chapters %}
+                <a href="{{ bchapter.link }}">{{ bchapter.name }}</a>
+                {% endfor %}
+            <div>
+        </header>
+        <ol class="bg-zinc-800 mt-3 p-3 rounded-md">
+            {% for verse in verses %}
+            <li>{{ verse }}</li>
+            {% endfor %}
+        </ol>
+        <footer class="flex justify-between mt-10 mb-20 text-neutral-400">
+            <a href="{{ previous_link }}" class="ml-3 before:content-['«'] before:text-neutral-500 before:mr-0.5">wstecz</a>
+            <a href="{{ next_link }}" class="mr-3 after:content-['»'] after:text-neutral-500 after:ml-0.5">naprzód</a>
+        </footer>
+    </div>
+</body>
+
+</html>

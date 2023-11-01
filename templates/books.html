@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Biblia</title>
+</head>
+<style>
+    .navpath a:not(:last-child):after {
+        content: "»";
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        color: rgb(115 115 115);
+    }
+
+    ol {
+        counter-reset: list-counter;
+    }
+
+    ol li::before {
+        counter-increment: list-counter;
+        content: counter(list-counter) '.';
+        color: #00bc00;
+        font-weight: bold;
+        margin-right: 0.25rem;
+    }
+
+    .cha-mr-0.25>a {
+        margin-rigth: 0.0025rem;
+    }
+</style>
+<link href="main.css" rel="stylesheet">
+<body class="bg-zinc-900 text-neutral-100 w-screen h-screen">
+    <div
+        class="w-full max-w-md mx-auto mt-10 mb-20 [&>a]:bg-zinc-800 [&>a]:block [&>a]:w-full [&>a]:p-3 [&>a]:rounded-md [&>a]:mb-1">
+        {% for book in books %}
+        <a href="{{ book.link }}">{{ book.name }}</a>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
