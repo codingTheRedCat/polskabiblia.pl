@@ -46,9 +46,15 @@
             <li>{{ verse }}</li>
             {% endfor %}
         </ol>
-        <footer class="flex justify-between mt-10 mb-20 text-neutral-400">
+        <footer>
+        <div class="flex justify-between mt-10 text-neutral-400">
             <a href="{{ previous_link }}" class="ml-3 before:content-['«'] before:text-neutral-500 before:mr-0.5">wstecz</a>
             <a href="{{ next_link }}" class="mr-3 after:content-['»'] after:text-neutral-500 after:ml-0.5">naprzód</a>
+        </div>
+        <a href="https://github.com/codingTheRedCat/polskabiblia.pl/" class="inline-block text-center relative left-1/2 -translate-x-1/2 mt-5 [&>*]:inline-block mb-20">
+            <img class="w-4 h-4 mr-1" src="../github-mark-white.svg">
+            polskabiblia.pl
+        </a>
         </footer>
     </div>
 </body>

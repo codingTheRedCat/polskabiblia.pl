@@ -92,5 +92,7 @@ content = bookst.render(
 with open("build/index.html", mode="w", encoding="utf-8") as msg:
     msg.write(content)
 
+shutil.copy("github-mark-white.svg", "build/github-mark-white.svg")
+
 import subprocess
 subprocess.run(['npx', 'tailwindcss', '-i', 'main.css', '-o', 'build/main.css'], stdout=stdout)
