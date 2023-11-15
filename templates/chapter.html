@@ -5,6 +5,11 @@
     <title>{{book.name}} {{chapter.name}}</title>
 </head>
 <style>
+@media (min-resolution: 2dppx) {
+    html {
+        font-size: 32px;
+    }
+}
     .navpath a:not(:last-child):after {
         content: "»";
         margin-left: 0.25rem;
@@ -30,7 +35,7 @@
 </style>
 <link href="../main.css" rel="stylesheet">
 <body class="bg-zinc-900 text-neutral-100 w-screen h-screen font-light">
-    <div class="w-full max-w-xl mx-auto mt-10">
+    <div class="w-full max-w-xl mx-auto px-2 mt-10">
         <header>
             <div class="navpath text-neutral-400">
                 <a href="..">BIBLIA</a><a href=".">{{book.name}}</a><a href="">{{chapter.name}}</a>
