@@ -5,6 +5,8 @@ import jinja2
 import shutil
 import os
 from pathlib import Path
+if not os.path.isdir("bible"):
+    Repo.clone_from("https://github.com/piotrskurzynski/biblia.git", "bible")
 
 book_names_repo = []
 
@@ -49,9 +51,6 @@ print(offch(0, 1, -1))
 
 print(len(order))
 print(len(order) % len(order))
-
-if not os.path.isdir("bible"):
-    Repo.clone_from("https://github.com/piotrskurzynski/biblia.git", "bible")
 
 shutil.rmtree("build")
 os.mkdir("build")
